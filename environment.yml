@@ -1,0 +1,9 @@
+name: Spensor
+
+dependencies:
+  - python=3.7
+  - numpy
+  - tensorflow
+  - opencv-python
+  - sklearn
+  - matplotlib
