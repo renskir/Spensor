@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6dcd3476-256e-4075-b82c-0e055b7aeba2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
-    </list>
+    <list default="true" id="6dcd3476-256e-4075-b82c-0e055b7aeba2" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +83,7 @@
       <workItem from="1616229393595" duration="3708000" />
       <workItem from="1616773308115" duration="1018000" />
       <workItem from="1616961592191" duration="5313000" />
-      <workItem from="1617180742035" duration="1586000" />
+      <workItem from="1617180742035" duration="1939000" />
     </task>
     <servers />
   </component>
