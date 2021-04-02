@@ -4,6 +4,15 @@ from sys import argv
 import os
 
 
+def max_pooling(frames):
+    # MAX POOLING
+    w, h, d = frames.shape
+    w2, h2 = 5, 5
+    w_max_pooling, h_max_pooling = w // w2, h // h2
+    frames = frames[:w_max_pooling * w2, :h_max_pooling * h2, :].reshape(w_max_pooling, w2, h_max_pooling, h2, d).max(
+        axis=(1, 3))
+    return frames
+
 def get_frames(sec, video_fn):
     # load video
     vidcap = cv2.VideoCapture(video_fn)
@@ -38,11 +47,7 @@ def make_data_arrays():
             frames = np.array(get_frames(sec, video_fn))
             frames = np.concatenate(frames, axis=2)
 
-            # MAX POOLING
-            w, h, d = frames.shape
-            w2, h2 = 5, 5
-            w_max_pooling, h_max_pooling = w // w2, h // h2
-            frames = frames[:w_max_pooling*w2, :h_max_pooling*h2, :].reshape(w_max_pooling, w2, h_max_pooling, h2, d).max(axis=(1, 3))
+            frames = max_pooling(frames)
 
             X.append(frames)
             y.append(folder)

@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 import cv2
+from convert_data import max_pooling
 
 
 def predict(X, labels):
@@ -38,7 +39,9 @@ def main():
             frames.pop(0)
 
         if len(frames) == 4:
-            X = np.array([np.concatenate(frames, axis=2)])
+            np_frames = max_pooling(np.concatenate(frames, axis=2))
+
+            X = np.array([np_frames])
             prediction = predict(X, labels)
             print(prediction)
             # connect to sound here
@@ -46,6 +49,7 @@ def main():
         amount_of_frames = 4
         frame_rate = 1 / amount_of_frames
         # break
+
 
 if __name__ == "__main__":
     main()
