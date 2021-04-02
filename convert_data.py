@@ -37,15 +37,22 @@ def make_data_arrays():
             video_fn = "data/videos/" + folder + "/" + video_fn
             frames = np.array(get_frames(sec, video_fn))
             frames = np.concatenate(frames, axis=2)
+
+            # MAX POOLING
+            w, h, d = frames.shape
+            w2, h2 = 5, 5
+            w_max_pooling, h_max_pooling = w // w2, h // h2
+            frames = frames[:w_max_pooling*w2, :h_max_pooling*h2, :].reshape(w_max_pooling, w2, h_max_pooling, h2, d).max(axis=(1, 3))
+
             X.append(frames)
             y.append(folder)
+
     np.save('data/npy/X.npy', np.array(X, dtype=object))
     np.save('data/npy/labels.npy', np.array(y, dtype=object))
 
 
 def main():
     make_data_arrays()
-
 
 
 if __name__ == '__main__':
